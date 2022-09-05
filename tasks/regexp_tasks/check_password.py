@@ -10,3 +10,12 @@
 Подсказка:
 Понадобится позитивный просмотр вперед (?=чтото)
 """
+import re
+
+
+def check_password(password):
+    pattern = re.compile(r"(?=^.{8,40}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
+    if not pattern.match(password):
+        return False
+    else:
+        return True
